@@ -1,0 +1,7 @@
+file format of splice.train and splice.test:
+
+first line:
+<number of attributes per example> <number of examples>
+
+all other lines:
+<class label> <attribute 1> <attribute 2> ...
