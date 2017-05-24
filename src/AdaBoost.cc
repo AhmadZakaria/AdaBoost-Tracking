@@ -9,6 +9,7 @@
 #include <iostream>
 #include <cmath>
 #include <numeric>
+#include <algorithm>
 
 AdaBoost::AdaBoost(u32 nIterations) :
     nIterations_(nIterations)
@@ -48,8 +49,16 @@ void AdaBoost::initialize(std::vector<Example>& data) {
     // initialize weights
     weights_.resize(data.size());
     f32 init_weight = 1.0f / data.size();
+    f32 minData = *std::min_element(data[0].attributes.begin(), data[0].attributes.end());
+    f32 maxData = *std::max_element(data[0].attributes.begin(), data[0].attributes.end());
+
     for (u32 i = 0; i < data.size(); i++) {
         weights_.at(i) = init_weight;
+        f32 minn = *std::min_element(data[i].attributes.begin(), data[i].attributes.end());
+        f32 maxx = *std::max_element(data[i].attributes.begin(), data[i].attributes.end());
+
+        minData = std::min(minn, minData);
+        maxData = std::max(maxx, maxData);
     }
 }
 

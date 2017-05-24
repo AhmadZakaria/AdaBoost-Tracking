@@ -9,6 +9,8 @@
 #define NEARESTMEANCLASSIFIER_HH_
 
 #include <vector>
+#include <random>
+
 #include "Types.hh"
 
 class Stump
@@ -20,6 +22,7 @@ private:
 	u32 classLabelLeft_;
 	u32 classLabelRight_;
 
+    std::mt19937 rng;
     f32 weightedError(const std::vector<Example>& data, const Vector& weights, u32 splitAttribute, f32 splitValue, u32& resultingLeftLabel);
     f32 weightedGain(const std::vector<Example>& data, const Vector& weights, u32 splitAttribute, f32 splitValue, u32& resultingLeftLabel);
     f32 entropy(const std::vector<Example>& data, const Vector &weights);

@@ -68,6 +68,13 @@ add_executable(nr2 ${PROJECT_SOURCE_DIR}/nr2.cc
                    ${PROJECT_SOURCE_DIR}/WeakClassifier.cc
                    ${PROJECT_SOURCE_DIR}/Types.hh)       #Add executable to sheet03.cpp
 target_link_libraries( nr2 ${OpenCV_LIBS} )                 #Link the executable with opencv library
+add_executable(nr3 ${PROJECT_SOURCE_DIR}/nr3.cc
+                   ${PROJECT_SOURCE_DIR}/AdaBoost.hh
+                   ${PROJECT_SOURCE_DIR}/AdaBoost.cc
+                   ${PROJECT_SOURCE_DIR}/WeakClassifier.hh
+                   ${PROJECT_SOURCE_DIR}/WeakClassifier.cc
+                   ${PROJECT_SOURCE_DIR}/Types.hh)       #Add executable to sheet03.cpp
+target_link_libraries( nr3 ${OpenCV_LIBS} )                 #Link the executable with opencv library
 
 #(If you want to add subprojects to your main the following is how you do)
 #Continue with subdirectory 
